@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('MONGODB_CONNECTION', 'mongodb'),
 
     /*
     |--------------------------------------------------------------------------
@@ -43,6 +43,18 @@ return [
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
         ],
 
+        'mongodb' => [
+            'driver' => 'mongodb',
+            'host' => env('MONGODB_HOST', '127.0.0.1'),
+            'port' => env('MONGODB_PORT', 27017),
+            'database' => env('MONGODB_DATABASE', 'niñeras'),
+            'username' => env('MONGODB_USERNAME'),
+            'password' => env('MONGODB_PASSWORD'),
+            'options' => [
+                'database' => env ('DB_AUTHENTICATION_DATABASE','admin'),
+            ],
+        ],
+    
         'mysql' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
